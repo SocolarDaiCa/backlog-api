@@ -3,6 +3,7 @@
 namespace Itigoppo\BacklogApi\Backlog;
 
 use Itigoppo\BacklogApi\Connector\Connector;
+use Itigoppo\BacklogApi\Params\IssuesParam;
 
 class Issues
 {
@@ -16,10 +17,12 @@ class Issues
     /**
      * 課題一覧の取得
      *
-     * @param array $query_options
+     * @param array{
+     *     projectId: array<int>
+     * } $query_options
      * @return mixed|string
      */
-    public function load($query_options = [])
+    public function load(array $query_options = [])
     {
         $query_params = [
             ] + $query_options;
@@ -30,7 +33,7 @@ class Issues
     /**
      * 課題数の取得
      *
-     * @param array $query_options
+     * @param array|IssuesParam $query_options
      * @return mixed|string
      */
     public function count($query_options = [])
